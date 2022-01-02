@@ -1,0 +1,122 @@
+﻿<Page
+    x:Class="LGNflicks.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LGNflicks"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Data="using:LGNflicks.Models"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <RelativePanel Grid.Column="0">
+            <Grid x:Name="logo"  
+                  RelativePanel.AlignHorizontalCenterWithPanel="True"
+                  RelativePanel.AlignVerticalCenterWithPanel="True"
+                  Width="600"
+                  Height="1000"
+                  
+                  >
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#ff193a2e" Offset="0.181"/>
+                        <GradientStop Color="#cc1aa88e" Offset="0.98"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Image Source="Assets/icons8-billete-con-estrella-64.png"
+                       Height="300" 
+                       Margin="113,155,151,545"/>
+                <TextBlock Text="Flicks APP"
+                           FontSize="60"
+                           Foreground="White"
+                           Margin="149,455,166,445"
+                           FontFamily="Century Gothic"
+                           />
+                <TextBlock Text="Aplicacion unica para usuarios"
+                           FontSize="20"
+                           Foreground="White"
+                           Margin="137,529,156,371"
+                           FontFamily="Century Gothic"/>
+            </Grid>
+
+        </RelativePanel>
+        <ScrollViewer Grid.Column="1"
+                      FontFamily="Century Gothic"
+                      Foreground="#ff193a2e"
+                      >
+
+            <StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0"
+                               FontSize="35"
+                               Text="LOGIN"
+                               Margin="50"
+                               FontWeight="Bold"/>
+                    <TextBlock Grid.Row="1"
+                               Text="Email:"
+                               FontSize="25"
+                               Margin="50,0,0,0"
+                               />
+                    <TextBox Grid.Row="2"
+                               FontSize="25"
+                               Margin="50,0,50,20"
+                               BorderThickness="0,0,0,3"
+                               BorderBrush="#cc1aa88e"
+                               x:Name="Txt_Usuariolog"
+                             />
+                    <TextBlock Grid.Row="3"
+                               Text="Password:"
+                               FontSize="25"
+                               Margin="50,0,0,0"
+                               
+                               />
+                    <PasswordBox Grid.Row="4"
+                                 FontSize="25"
+                                 Margin="50,0,50,20"
+                                 BorderThickness="0,0,0,3"
+                                 BorderBrush="#cc1aa88e"
+                                 x:Name="Txt_Password"
+                                  />
+                    <Button Grid.Row="5"
+                            Margin="50,0,0,0"
+                            Content="Login"
+                            FontSize="21"
+                            Foreground="White"
+                            Background="#cc1aa88e"
+                            CornerRadius="5"
+                            Padding="15,5,15,5"
+                            Click="Button_Click"
+                            />
+                    <TextBlock Grid.Row="6"
+                               x:Name="mext"
+                               Text=""
+                               FontSize="25"
+                               Margin="50,0,0,0"
+                               />
+
+                    <HyperlinkButton Grid.Row="7"
+                        Content="¿No tienes cuenta? !Registarte!"
+                        NavigateUri="https://localhost:44351/Usuarios/Create"             
+                        Margin="50,0,0,0"           
+                                     />
+                </Grid>
+            </StackPanel>
+
+        </ScrollViewer>
+
+    </Grid>
+</Page>

@@ -1,0 +1,112 @@
+﻿@model IEnumerable<Flicks4u.Models.Pelicula>
+
+@{
+    ViewData["Title"] = "Index";
+    Pager pager = new Pager();
+    int pageNo = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
+}
+
+<h1>Index</h1>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+
+<div class="col-4 p-0 justify-content-end">
+    <form asp-controller="Peliculas" asp-action="Index">
+        <span class="btn-group">
+            <input class="form-control" type="text" name="nombre">
+            <input class="p-1 ml-2 btn btn-sm btn-info" type="submit" value="Buscar" />
+        </span>
+    </form>
+</div>
+
+<p></p>
+<p></p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sinopsis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lanzamiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Escritores)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Esactivo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Censura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imagen)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sinopsis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lanzamiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Escritores)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Esactivo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genero.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Censura.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Imagen.RutaImagen)
+                </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="container">
+    @if (pager.TotalPages > 0)
+    {
+        <ul class="pagination justify-content-end">
+            @for (var pge = pager.StartPage; pge <= pager.EndPage; pge++)
+            {
+                <li class="page-item @(pge==pager.CurrentPage? "active":"")">
+                    <a class="page-link" asp-controller="Peliculas" asp-action="Index" asp-route-pg="@pge">@pge</a>
+                </li>
+            }
+        </ul>
+    }
+</div>

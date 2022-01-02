@@ -1,0 +1,6 @@
+﻿.fondo{
+    background-color: cornsilk;
+    background-image: url('../imagenes/fondo.png');
+    background-size:cover;
+    background-repeat:no-repeat;
+}

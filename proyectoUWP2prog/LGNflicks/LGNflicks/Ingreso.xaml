@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="LGNflicks.Ingreso"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LGNflicks"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="973" Width="1379">
+
+    <Grid Background="LightBlue">
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="¡Bienvenido de vuelta!" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="50"/>
+            <TextBlock Text="Presentamos la votación de esta semana:" VerticalAlignment="Top" HorizontalAlignment="Center" />
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Perfil de: " VerticalAlignment="Top" HorizontalAlignment="Left" />
+                <TextBlock Grid.Column="1" Text="aqui va tu nombre " VerticalAlignment="Top" HorizontalAlignment="Left" x:Name="nomus" />
+            </Grid>
+            
+            
+            <StackPanel Orientation="Horizontal">
+                <GridView x:Name="GridPeliculas" BorderBrush="Black">
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid x:Name="Test" HorizontalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0"  Text="{Binding Nombre}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25"/>
+                                <Image Width="320" Height="480" Grid.Row="1" x:Name="Imagen" Source="{Binding Imagen}"/>
+                                <TextBlock Grid.Row="2"  Text="{Binding Sinopsis}" MaxWidth="320" TextWrapping="Wrap"/>
+                                <TextBlock Grid.Row="3" Text="{Binding Lanzamiento}"/>
+                                <TextBlock Grid.Row="4" Text="{Binding Descripcion}"/>
+                                <TextBlock Grid.Row="5" Text="{Binding GeneroNombre}"/>
+                                <TextBlock Grid.Row="6" Text="{Binding CantVotos}"/>
+                                <Button Grid.Row="7" x:Name="botonVotar" Content="Votar" Background="Aqua" Click="botonVotar_Click"/>
+                            </Grid>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+            </StackPanel>
+        </StackPanel>
+
+        
+        <Button x:Name="eliminarVoto"
+                Content="Eliminar voto"
+                Background="#ffc506"
+                Margin="1100,470,0,0"
+                Visibility="Collapsed"
+                Click="eliminarVoto_Click"
+            />
+        <TextBlock x:Name="disponibildadbtn" 
+                   Text="" 
+                   Foreground="Red"
+                   Margin="500,720,0,0"/>
+        <Button Content="Salir"
+                Click="Button_Click"
+                Background="#cc1aa88e" 
+                Margin="1234,705,0,0"
+                VerticalAlignment="Top"/>
+        
+    </Grid>
+</Page>

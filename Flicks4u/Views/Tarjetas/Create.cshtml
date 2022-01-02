@@ -1,0 +1,36 @@
+﻿@model Flicks4u.Models.Tarjetum
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Tarjetum</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NumeroTarjeta" class="control-label"></label>
+                <input asp-for="NumeroTarjeta" class="form-control" />
+                <span asp-validation-for="NumeroTarjeta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaEmision" class="control-label"></label>
+                <input asp-for="FechaEmision" class="form-control" />
+                <span asp-validation-for="FechaEmision" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CodigoSeguridad" class="control-label"></label>
+                <input asp-for="CodigoSeguridad" class="form-control" />
+                <span asp-validation-for="CodigoSeguridad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Flicks4u.Models.Pelicula>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">¡Bienvenido de vuelta!</h1>
+    <h5>Previsualizacion de la votacion de esta semana:</h5>
+</div>
+<div>
+    <p>Perfil de @ViewBag.NombreLog</p>
+</div>
+<div class="fondo">
+    <div class="row">
+        @foreach (var pelicula in Model)
+        {<div class="m-5">
+                <div class="m-4">
+                    <div class="card m-5" style="width:320px">
+                        <div class="text-center">
+                            <h3>@pelicula.Nombre</h3>
+                            @if (pelicula.ImagenID == null)
+                            {
+                                <img class="img-fluid" src="/imagenes/no encontrado.png" style="width:320px; height:480px" />
+                            }
+                            else
+                            {
+                                <img class="img-fluid" src="/@pelicula.Imagen.RutaImagen" style="width:320px; height:480px">
+                            }
+                        </div>
+                        <p>@pelicula.Sinopsis</p>
+                        <p>@pelicula.Censura.Nombre</p>
+                        <p>@pelicula.Genero.Nombre</p>
+                        <p>Cantidad de votos: @pelicula.Votos.Count</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

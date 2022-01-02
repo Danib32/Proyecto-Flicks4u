@@ -1,0 +1,48 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flicks</title>
+    <link rel="stylesheet" href= "~/css/login.css"/>
+</head>
+<body>
+    <header class="header">
+        <img class="header__img" src="~/imagenes/icons8-bmo.svg" alt="Flix4u">
+        <h2>Flicks</h2>
+    </header>
+    <section class="login">
+        <section class="login__container">
+            <h2>Inicio de sesión</h2>
+            <form class="login__container--form" asp-action="Login">
+                <input class="input" type="text" placeholder="Correo" name="Txt_Usuariolog">
+                <input class="input" type="password" placeholder="Contraseña" name="Txt_Password">
+                <button class="button" type="submit">Ingresar</button>
+            </form>
+            <div>
+                <p>
+                    @ViewBag.MensajeErrorCorreo
+                </p>
+                <p>
+                    @ViewBag.MensajeErrorPassLog
+                </p>
+            </div>
+            <section class="login__container--social-media">
+                <div>
+                    <img src="~/imagenes/google-g-icon-9.jpeg" alt="Google">
+                    <a href="https://accounts.google.com/signin/v2/identifier?hl=es-419&continue=https%3A%2F%2Fwww.google.com%3Fhl%3Des-419&ec=GAlA8wE&flowName=GlifWebSignIn&flowEntry=AddSession">Iniciar sesión con Google</a>
+                </div>
+                <div>
+                    <img src="~/imagenes/icons8-twitter-60.png" alt="Twitter">
+                    <a href="https://twitter.com/?lang=es">Iniciar sesión con Twitter</a>
+
+                </div>
+            </section>
+        </section>
+    </section>
+</body>
+</html>
